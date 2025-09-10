@@ -81,7 +81,7 @@ h1, h2, div {
     transform: scale(0.95);
 }
 
-.mirror, .travesty, .discord, .github, .youtube {
+.mirror, .travesty, .github, .youtube {
     width: 25vw;
     min-width: 250px;
     max-width: 700px;
@@ -108,11 +108,6 @@ h1, h2, div {
     border-color: #0c0c0c;
 }
 
-.discord {
-    background-color: #5865F2;
-    border-color: #333b8b;
-}
-
 .youtube {
     background-color: #ff0000;
     border-color: #940000;
@@ -135,17 +130,12 @@ h1, h2, div {
     background-color: #131313;
 }
 
-.discord:hover {
-    background-color: #4650be;
-}
-
 .youtube:hover {
     background-color: #c00000;
 }
 
 .mirror:hover,
 .travesty:hover,
-.discord:hover,
 .github:hover,
 .youtube:hover {
     transform: scale(0.95);
