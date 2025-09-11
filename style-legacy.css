@@ -81,7 +81,7 @@ h1, h2, div {
     transform: scale(0.95);
 }
 
-.mirror, .travesty, .github, .youtube {
+.mirror, .travesty, .github, .youtube, .rumble {
     width: 25vw;
     min-width: 250px;
     max-width: 700px;
@@ -110,13 +110,20 @@ h1, h2, div {
 
 .youtube {
     background-color: #ff0000;
-    border-color: #940000;
+    border-color: #720000;
+}
+
+.rumble {
+    background-color: #85C742;
+    border-color: #466b21;
 }
 
 .mirror,
 .travesty,
 .github,
-.youtube {
+.youtube,
+.rumble {
+    text-align: center;
     color: #ffffff;
 }
 
@@ -134,9 +141,14 @@ h1, h2, div {
     background-color: #c00000;
 }
 
+.rumble:hover {
+    background-color: #7ab63f;
+}
+
 .mirror:hover,
 .travesty:hover,
 .github:hover,
-.youtube:hover {
+.youtube:hover,
+.rumble:hover {
     transform: scale(0.95);
 }

@@ -42,17 +42,17 @@ function openTravesty() {
 }
 
 function openGithub() {
-    var githubLink = "https://github.com/1-Mythical/";
+    var githubLink = "https://github.com/HolyMythicalMan/Ludos";
     var githubPopup = window.open(githubLink);
 
     if (!githubPopup) {
-        alert("Popup was blocked. Redirecting this page to the Github page.");
+        alert("Popup was blocked. Redirecting this page to the GitHub page.");
         window.location.href = githubLink;
     }
 }
 
 function openYoutube() {
-    var youtubeLink = "https://www.youtube.com/channel/UCoXIebdrZPGGMrMYVKQpRLg/";
+    var youtubeLink = "https://www.youtube.com/channel/UC4Q8wDUTgA1aXQM0D-fi0YQ/";
     var youtubePopup = window.open(youtubeLink);
 
     if (!youtubePopup) {
@@ -61,8 +61,20 @@ function openYoutube() {
     }
 }
 
-// Embed
+function openRumble() {
+    var rumbleLink = "https://rumble.com/user/HolyMythicalMan/";
+    var rumblePopup = window.open(rumbleLink);
 
+    if (!rumblePopup) {
+        alert("Popup was blocked. Redirecting this page to the Rumble page.");
+        window.location.href = rumbleLink;
+    }
+}
+
+// Embed (this is pointless now)
+
+/*
 window.addEventListener("load", () => {
 	new ServerEmbed(document.getElementById("embed"), "35%").ping("wss://mc.theludos.com", "Myth's EagMP" , "true" , "" , "hideCracked");
 });
+*/

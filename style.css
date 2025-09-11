@@ -84,6 +84,7 @@ h1, h2, div {
 .travesty,
 .github,
 .youtube,
+.rumble,
 .about
 {
     width: 25vw;
@@ -116,10 +117,15 @@ h1, h2, div {
     color: #df0000;
 }
 
+.rumble {
+    color: #85C742;
+}
+
 .mirror:hover,
 .travesty:hover,
 .github:hover,
 .youtube:hover,
+.rumble:hover,
 .about:hover
 {
     border-color: inherit;
