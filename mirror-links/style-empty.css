@@ -1,0 +1,27 @@
+h1, h2, h3, div, p, a, button, strong {
+    text-align: center;
+}
+
+ul {
+    text-align: left;
+    display: inline-block;
+}
+
+.ludos {
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.footer {
+    display: none;
+}
+
+.main {
+    width: 32vw;
+    height: auto;
+    max-width: 800px;
+    min-width: 300px;
+    font-size: 75px;
+    padding: 30px 64px;
+    cursor: pointer;
+}

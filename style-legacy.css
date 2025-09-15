@@ -10,11 +10,6 @@ h1, h2, div {
     font-size: 80px;
 }
 
-#embed {
-    margin: auto;
-    margin-bottom: 50px;
-}
-
 .ludosLogo {
     margin-bottom: -100px;
     height: 250px;
@@ -91,7 +86,7 @@ h1, h2, div {
     border-radius: 15px;
     cursor: pointer;
     text-shadow: none;
-    font-size: 25px;
+    font-size: 30px;
     box-shadow: inset;
     transition: width .25s, height .25s, background-color .25s, transform .25s;
 }

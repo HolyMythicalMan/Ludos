@@ -1,0 +1,72 @@
+h1, h2, div {
+    text-align: center;
+    font-size: 80px;
+}
+
+.ludosLogo {
+    margin-bottom: -100px;
+    border-radius: 50%;
+    transition: box-shadow 1s;
+    background-color: #2D2928;
+}
+
+.footer {
+    display: none;
+}
+
+.main {
+    width: 90vw;
+    height: 100px;
+    max-width: 1200px;
+    cursor: pointer;
+    font-size: 40px;
+}
+
+.main {
+    margin-bottom: 100px;
+}
+
+.games {
+    margin-bottom: 20px;
+}
+
+.eaglercraft {
+    width: 25vw;
+    min-width: 350px;
+    max-width: 650px;
+    display: inline-block;
+    padding: 24px;
+    cursor: pointer;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.retro-bowl,
+.n-gon,
+.c-gon,
+.planet,
+.cookie-clicker,
+.baldis-basics,
+.vlol,
+.dance-fire-ice,
+.ten-mins,
+.number-game,
+.number-game-multi,
+.number-game-big,
+.number-game-small,
+.number-game-cupcake,
+.sand-game,
+.crossy-road,
+.core-ball,
+.mario-64,
+.fnaw
+{
+    width: 15vw;
+    min-width: 300px;
+    max-width: 600px;
+    display: inline-block;
+    padding: 16px;
+    cursor: pointer;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
