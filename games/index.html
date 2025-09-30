@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        Projects | Ludos
+    </title>
+    <meta name="description" content="Ludos is a site designed for playing online HTML games in your browser!">
+    <meta name="keywords" content="ludos, html, browser, games, online, fun, 3kh0, mythicaltrashcan, 1_mythical, holymythicalman">
+    <meta name="author" content="HolyMythicalMan">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <script src="script.js"></script>
+    <link type="image/png" rel="shortcut icon" href="../favicons/ludos-favicon.png" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1576606614118788" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <h1 style="margin-bottom: 100px;">
+        Welcome to <img draggable="false" class="ludosLogo" src="../favicons/ludos.png" width="250" height="250"> Projects!
+    </h1>
+    <h2 style="font-size: 40px;">
+        This has a list of all the currently implemented games!
+    </h2>
+    <div>
+        <button class="main" onclick="returnHome()">Return to main site</button>
+    </div>
+    <div>
+        <button class="eaglercraft" onclick="openEaglercraft()"><img draggable="false" src="https://raw.githubusercontent.com/HolyMythicalMan/Ludos-Assets/main/game_icons/eaglerx.png" width="100" height="100"><br>Eaglercraft Clients</button>
+    </div>
+    <div class="games">
+        <div id="games-container"></div>
+    </div>
+    <table style="margin-top: 50px;">
+        <td class="footer">
+            <a href="https://github.com/HolyMythicalMan/Ludos"><strong>Ludos</strong></a>
+            <a>2022-2025</a>
+        </td>
+    </table>
+    <script>
+        const links = ["assetsLink", "villadeLink"];
+        links.forEach(link => {
+            if (localStorage.getItem(link) === null) {
+            localStorage.setItem(link, location.protocol + '//' + location.host.replace('www', link.slice(0, -4)));
+            }
+        });
+
+        const gameIcons = [
+            {name: "Retro Bowl",               id: "retro-bowl",          icon: "retro-bowl.png",          onclick: "openGame('retroBowl')"},
+            {name: "N-Gon",                    id: "n-gon",               icon: "n-gon.png",               onclick: "openGame('ngon')"},
+            {name: "C-Gon",                    id: "c-gon",               icon: "c-gon.png",               onclick: "openGame('cgon')"},
+            {name: "Planetesimals",            id: "planet",              icon: "planet.png",              onclick: "openGame('planetesimals')"},
+            {name: "Cookie Clicker",           id: "cookie-clicker",      icon: "cookie-clicker.png",      onclick: "openGame('cookieClicker')"},
+            {name: "Baldi's Basics",           id: "baldis-basics",       icon: "baldis-basics.png",       onclick: "openGame('baldisBasics')"},
+//          {name: "1v1.Lol",                  id: "vlol",                icon: "vlol.png",                onclick: "openGame('onevonelol')"},
+            {name: "A Dance of Fire and Ice",  id: "dance-fire-ice",      icon: "dance.png",               onclick: "openGame('aDanceOfFireAndIce')"},
+            {name: "Ten Minutes Till Dawn",    id: "ten-mins",            icon: "10-mins.png",             onclick: "openGame('tenMinutesUntilDawn')"},
+            {name: "2048",                     id: "number-game",         icon: "2048.png",                onclick: "openGame('2048')"},
+            {name: "2048 Multitask",           id: "number-game-multi",   icon: "2048-multitask.png",      onclick: "openGame('multiTask')"},
+            {name: "2048 Big Numbers",         id: "number-game-big",     icon: "2048-big.png",            onclick: "openGame('big2048')"},
+            {name: "2048 Reverse",             id: "number-game-small",   icon: "1.png",                   onclick: "openGame('reverse2048')"},
+            {name: "2048 Cupcake",             id: "number-game-cupcake", icon: "2048-cupcake.png",        onclick: "openGame('cupcake2048')"},
+            {name: "Sand Game",                id: "sand-game",           icon: "sand-game.png",           onclick: "openGame('sandGame')"},
+            {name: "Crossy Road",              id: "crossy-road",         icon: "crossy-road.png",         onclick: "openGame('crossyRoad')"},
+            {name: "Core Ball",                id: "core-ball",           icon: "core-ball.png",           onclick: "openGame('coreBall')"},
+            {name: "Mario 64",                 id: "mario-64",            icon: "sm64.png",                onclick: "openGame('mario64')"},
+            {name: "Five Nights at Winston's", id: "fnaw",                icon: "fnaw.png",                onclick: "openGame('fnaw')"}
+        ];
+
+        const games = {
+            retroBowl:           "bowl",
+            ngon:                "ngon",
+            cgon:                "cgon",
+            planetesimals:       "planetesimals",
+            cookieClicker:       "choco-chip",
+            baldisBasics:        "baldis-basics",
+//          onevonelol:          "shootgame3d",
+            aDanceOfFireAndIce:  "a-dance-of-fire-and-ice",
+            tenMinutesUntilDawn: "10-minutes-till-dawn",
+            2048:                "numbergame",
+            multiTask:           "numbergame-multitask",
+            big2048:             "numbergame-big",
+            reverse2048:         "numbergame-reverse",
+            cupcake2048:         "numbergame-cupcake",
+            sandGame:            "sand-game",
+            crossyRoad:          "crossy-road",
+            coreBall:            "core-ball",
+            mario64:             "sm64",
+            fnaw:                "fnaw"
+        };
+
+        const gamesHtml = gameIcons.map(game => {
+        return `
+            <button class="${game.id.toLowerCase()}" onclick="${game.onclick}">
+            <img draggable="false" src="https://raw.githubusercontent.com/HolyMythicalMan/Ludos-Assets/main/game_icons/${game.icon}" width="80" height="80">
+            <br>${game.name}
+            </button>
+        `;
+        }).join("");
+
+        document.getElementById("games-container").innerHTML = gamesHtml;
+
+        function openGame(gameName) {
+            const gamePath = games[gameName];
+            if (gamePath) {
+                window.location.href = localStorage.getItem("assetsLink") + "/games/" + gamePath + "/";
+            }
+            else {
+                alert('There was an issue attempting to open the game. (Game not found)');
+            }
+        }
+    </script>
+</body>
+
+</html>

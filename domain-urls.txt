@@ -1,3 +1,2 @@
 theludos.com                             - Main
-anythingthat.works                       - Alternative
 theludos.netlify.app                     - Alternative

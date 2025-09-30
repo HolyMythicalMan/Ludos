@@ -1,7 +1,7 @@
 :root {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #afafaf;
-    background: radial-gradient(#131313 0%, #000000 100%);
+    background: #000000;
+    color: #636363;
 }
 
 h1, h2, div {
@@ -31,6 +31,7 @@ h1, h2, div {
     color: white;
     text-align: center;
     font-size: 25px;
+    border-top: 2px solid #242424;
 }
 
 .main {
@@ -75,7 +76,27 @@ h1, h2, div {
     border-color: #6d6d6d;
 }
 
-.mirror,
+.mirror {
+    width: 25vw;
+    height: auto;
+    max-width: 700px;
+    min-width: 250px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #242424;
+    border-width: 3px;
+    border-radius: 15px;
+    color: #e4cd4f;
+    font-size: 50px;
+    padding: 15px 32px;
+    cursor: pointer;
+    transition: background-color .25s, transform 1s, border-color .25s;
+}
+
+.mirror:hover {
+    border-color: #6d6d6d;
+}
+
 .travesty,
 .github,
 .youtube,
@@ -94,10 +115,6 @@ h1, h2, div {
     cursor: pointer;
     font-size: 30px;
     transition: background-color .25s, border-color .25s;
-}
-
-.mirror {
-    color: #e4cd4f;
 }
 
 .travesty {

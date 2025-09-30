@@ -1,0 +1,140 @@
+:root {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #000000;
+    color: #636363;
+}
+
+h1, h2, div {
+    text-align: center;
+    font-size: 80px;
+}
+
+.ludosLogo {
+    margin-bottom: -100px;
+    border-radius: 50%;
+    transition: box-shadow 1s;
+}
+
+.ludosLogo:hover {
+    box-shadow: 0 0 50px rgb(165, 106, 29);
+}
+
+.footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    width: 100%;
+    height: 40px;
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    font-size: 25px;
+    border-top: 2px solid #242424;
+}
+
+.main {
+    width: 90vw;
+    height: 100px;
+    max-width: 1200px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #242424;
+    border-width: 4px;
+    border-radius: 10px;
+    color: #afafaf;
+    cursor: pointer;
+    font-size: 40px;
+    transition: background-color .25s, border-color .25s;
+}
+
+.main {
+    color: #a78209;
+    margin-bottom: 100px;
+}
+
+.main:hover {
+    border-color: #a78209;
+}
+
+.games {
+    margin-bottom: 20px;
+}
+
+.eaglercraft {
+    width: 25vw;
+    min-width: 350px;
+    max-width: 650px;
+    display: inline-block;
+    padding: 24px;
+    white-space: none;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #242424;
+    border-radius: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 35px;
+    transition: background-color .25s, border-color .25s;
+    margin-bottom: 20px;
+}
+
+.retro-bowl,
+.n-gon,
+.c-gon,
+.planet,
+.cookie-clicker,
+.baldis-basics,
+.vlol,
+.dance-fire-ice,
+.ten-mins,
+.number-game,
+.number-game-multi,
+.number-game-big,
+.number-game-small,
+.number-game-cupcake,
+.sand-game,
+.crossy-road,
+.core-ball,
+.mario-64,
+.fnaw
+{
+    width: 15vw;
+    min-width: 300px;
+    max-width: 600px;
+    display: inline-block;
+    padding: 16px;
+    background-color: transparent;
+    border-style: solid;
+    border-color: #242424;
+    border-radius: 8px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 25px;
+    transition: background-color .25s, border-color .25s;
+    margin-bottom: 20px;
+}
+
+.eaglercraft:hover,
+.retro-bowl:hover,
+.n-gon:hover,
+.c-gon:hover,
+.planet:hover,
+.cookie-clicker:hover,
+.baldis-basics:hover,
+.vlol:hover,
+.dance-fire-ice:hover,
+.ten-mins:hover,
+.number-game:hover,
+.number-game-multi:hover,
+.number-game-big:hover,
+.number-game-small:hover,
+.number-game-cupcake:hover,
+.sand-game:hover,
+.crossy-road:hover,
+.core-ball:hover,
+.mario-64:hover,
+.fnaw:hover
+{
+    border-color: #ffffff;
+}
