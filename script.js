@@ -51,10 +51,6 @@ function openRumble() {
     }
 }
 
-// Embed (this is pointless now)
-
-/*
 window.addEventListener("load", () => {
-	new ServerEmbed(document.getElementById("embed"), "35%").ping("wss://mc.theludos.com", "Myth's EagMP" , "true" , "" , "hideCracked");
+	new ServerEmbed(document.getElementById("embed"), "35%").ping("wss://mc.theludos.com", "The EagMP" , "true" , "" , "hideCracked");
 });
-*/

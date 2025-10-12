@@ -9,6 +9,11 @@ h1, h2, div {
     font-size: 80px;
 }
 
+#embed {
+    margin: auto;
+    margin-bottom: 50px;
+}
+
 .ludosLogo {
     margin-bottom: -100px;
     height: auto;
