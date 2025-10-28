@@ -3,5 +3,5 @@ function returnHome() {
 }
 
 function openEaglercraft() {
-    window.location.href = './eaglercraft/';
+    window.location.href = './mc/';
 }
