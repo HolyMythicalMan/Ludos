@@ -37,18 +37,18 @@
     <p id="selectedAssetsLink"></p>
     <br>
     <div>
-        <button onclick="selectAssetsLink()">Select an Assets link</button>
-        <button onclick="useCustomAssetsLink()">Add your own custom Assets link</button>
-        <button onclick="resetAssetsLink()">Reset Assets link value</button>
+        <button onclick="selectLink(1)">Select an Assets link</button>
+        <button onclick="useCustomLink(1)">Add your own custom Assets link</button>
+        <button onclick="resetLink(1)">Reset Assets link value</button>
     </div>
     <p>
         Official:
     </p>
     <div>
         <ul>
-            <a>0. https://assets.theludos.com</a><br><br>
-            <a>1. https://ludos-assets.netlify.app</a><br><br>
-            <a>2. https://ludos-assets.onrender.com</a><br><br>
+            <a id="assetsLinks"></a><br><br>
+            <a id="assetsLinks"></a><br><br>
+            <a id="assetsLinks"></a><br><br>
         </ul>
     </div>
     <p>
@@ -62,18 +62,18 @@
     <p id="selectedVilladeLink"></p>
     <br>
     <div>
-        <button onclick="selectVilladeLink()">Select a Villade link</button>
-        <button onclick="useCustomVilladeLink()">Add your own custom Villade link</button>
-        <button onclick="resetVilladeLink()">Reset Villade link value</button>
+        <button onclick="selectLink(2)">Select a Villade link</button>
+        <button onclick="useCustomLink(2)">Add your own custom Villade link</button>
+        <button onclick="resetLink(2)">Reset Villade link value</button>
     </div>
     <p>
         Official:
     </p>
     <div>
         <ul>
-            <a>0. https://villade.theludos.com</a><br><br>
-            <a>1. https://villade.netlify.app</a><br><br>
-            <a>2. https://villade.onrender.com</a><br><br>
+            <a id="villadeLinks"></a><br><br>
+            <a id="villadeLinks"></a><br><br>
+            <a id="villadeLinks"></a><br><br>
         </ul>
     </div>
     <p>
@@ -88,6 +88,7 @@
         </td>
     </table>
 </body>
+
 <script>
     function returnHome() {
     const button = document.querySelector('button');
@@ -103,8 +104,6 @@ links.forEach(link => {
 });
 
 
-// Link Array
-
 const assetsLinks = [
     "https://assets.theludos.com",
     "https://ludos-assets.netlify.app",
@@ -117,72 +116,51 @@ const villadeLinks = [
     "https://villade.onrender.com"
 ];
 
-
-// Assets
+document.getElementById("assetsLinks").innerHTML = assetsLinks.map((link, index) => `<a>${index + 1}. ${link}</a><br><br>`).join('');
+document.getElementById("villadeLinks").innerHTML = villadeLinks.map((link, index) => `<a>${index + 1}. ${link}</a><br><br>`).join('');
 
 let localStorageAssetsLink = localStorage.getItem("assetsLink");
-document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
-
-function selectAssetsLink() {
-    let selectedAssetsLinkNumber = prompt("Please enter a link number for Assets to redirect to: ");
-    let currentSetAssetsLink = assetsLinks[selectedAssetsLinkNumber];
-    localStorage.setItem("assetsLink", currentSetAssetsLink);
-    let localStorageAssetsLink = localStorage.getItem("assetsLink");
-    document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
-    if (localStorage.getItem("assetsLink") === "undefined") {
-        alert("That value isn't a link number. Resetting to default link...");
-        localStorage.setItem("assetsLink", location.protocol + '//' + location.host.replace('www','assets'));
-        let localStorageAssetsLink = localStorage.getItem("assetsLink");
-        document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
-    }
-}
-
-function useCustomAssetsLink() {
-    alert("WARNING: This will overwrite the current link with anything. There are no checks so if the link is invalid, the games will not load.");
-    let customAssetsLink = prompt("Please enter a custom link for Assets to redirect to: ");
-    localStorage.setItem("assetsLink", customAssetsLink);
-    let localStorageAssetsLink = localStorage.getItem("assetsLink");
-    document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
-}
-
-function resetAssetsLink() {
-    localStorage.setItem("assetsLink", location.protocol + '//' + location.host.replace('www','assets'));
-    let localStorageAssetsLink = localStorage.getItem("assetsLink");
-    document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
-}
-
-
-// Villade
-
 let localStorageVilladeLink = localStorage.getItem("villadeLink");
+
+document.getElementById("selectedAssetsLink").innerHTML = localStorageAssetsLink;
 document.getElementById("selectedVilladeLink").innerHTML = localStorageVilladeLink;
 
-function selectVilladeLink() {
-    let selectedVilladeLinkNumber = prompt("Please enter a link number for Villade to redirect to: ");
-    let currentSetVilladeLink = villadeLinks[selectedVilladeLinkNumber];
-    localStorage.setItem("villadeLink", currentSetVilladeLink);
-    let localStorageVilladeLink = localStorage.getItem("villadeLink");
-    document.getElementById("selectedVilladeLink").innerHTML = localStorageVilladeLink;
-    if (localStorage.getItem("villadeLink") === "undefined") {
+function selectLink(linkType) {
+    let selectedLink = prompt("Please enter a link number for " + (linkType === 1 ? "Assets" : "Villade") + " to redirect to: ");
+    selectedLink = parseInt(selectedLink) - 1;
+    let currentSetLink = (linkType === 1 ? assetsLinks : villadeLinks)[selectedLink];
+
+    localStorage.setItem(linkType === 1 ? "assetsLink" : "villadeLink", currentSetLink);
+
+    let localStorageLink = localStorage.getItem(linkType === 1 ? "assetsLink" : "villadeLink");
+    document.getElementById("selected" + (linkType === 1 ? "Assets" : "Villade") + "Link").innerHTML = localStorageLink;
+
+    if (localStorage.getItem(linkType === 1 ? "assetsLink" : "villadeLink") === "undefined") {
         alert("That value isn't a link number. Resetting to default link...");
-        localStorage.setItem("villadeLink", location.protocol + '//' + location.host.replace('www','villade'));
-        let localStorageVilladeLink = localStorage.getItem("villadeLink");
-        document.getElementById("selectedVilladeLink").innerHTML = localStorageVilladeLink;
+
+        localStorage.setItem(linkType === 1 ? "assetsLink" : "villadeLink", location.protocol + '//' + location.host.replace('www', linkType === 1 ? "assets" : "villade"));
+        let localStorageLink = localStorage.getItem(linkType === 1 ? "assetsLink" : "villadeLink");
+        
+        document.getElementById("selected" + (linkType === 1 ? "Assets" : "Villade") + "Link").innerHTML = localStorageLink;
     }
 }
 
-function useCustomVilladeLink() {
-    alert("WARNING: This will overwrite the current link with anything. There are no checks so if the link is invalid, the games will not load.");
-    let customVilladeLink = prompt("Please enter a custom link for Villade to redirect to: ");
-    localStorage.setItem("villadeLink", customVilladeLink);
-    let localStorageVilladeLink = localStorage.getItem("villadeLink");
-    document.getElementById("selectedVilladeLink").innerHTML = localStorageVilladeLink;
+function useCustomLink(linkType) {
+    input = prompt("WARNING: This will overwrite the current link with anything. There are no checks so if the link is invalid, the games will not load. Input \"confirm\" to continue.");
+    if (input.toLowerCase() == "confirm") {
+        let customLink = prompt("Please enter a custom link for " + (linkType === 1 ? "Assets" : "Villade") + " to redirect to: ");
+        localStorage.setItem(linkType === 1 ? "assetsLink" : "villadeLink", customLink);
+
+        let localStorageLink = localStorage.getItem(linkType === 1 ? "assetsLink" : "villadeLink");
+
+        document.getElementById("selected" + (linkType === 1 ? "Assets" : "Villade") + "Link").innerHTML = localStorageLink;
+    }
 }
 
-function resetVilladeLink() {
-    localStorage.setItem("villadeLink", location.protocol + '//' + location.host.replace('www','villade'));
-    let localStorageVilladeLink = localStorage.getItem("villadeLink");
-    document.getElementById("selectedVilladeLink").innerHTML = localStorageVilladeLink;
-}
+function resetLink(linkType) {
+    localStorage.setItem(linkType === 1 ? "assetsLink" : "villadeLink", location.protocol + '//' + location.host.replace('www', linkType === 1 ? "assets" : "villade"));
+    let localStorageLink = localStorage.getItem(linkType === 1 ? "assetsLink" : "villadeLink");
 
+    document.getElementById("selected" + (linkType === 1 ? "Assets" : "Villade") + "Link").innerHTML = localStorageLink;
+}
 </script>
